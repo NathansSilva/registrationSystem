@@ -17,14 +17,4 @@ public class QuestionAnalyzer {
 
         return questionReader.readLinesFromQuestion(lines);
     }
-
-    public static void writeFileTxt(String path, String content) {
-        try {
-            Files.write(Paths.get(path), content.getBytes(), StandardOpenOption.CREATE);
-        } catch (IOException e) {
-            System.out.println("Failed to write file. " + e.getMessage());
-        }
-
-    }
-
 }

@@ -4,16 +4,15 @@ import java.io.IOException;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.stream.Stream;
 
 public class QuestionService {
 
     private List<Question> questions;
     private List<User> users;
+    QuestionReader questionReader = new QuestionReaderText();
 
     public QuestionService(String filename) {
         QuestionAnalyzer questionAnalyzer = new QuestionAnalyzer();
-        QuestionReader questionReader = new QuestionReaderText();
 
         try {
             this.questions = questionAnalyzer.analyze(filename, questionReader);
@@ -111,7 +110,7 @@ public class QuestionService {
     private void saveUserFile(User user) {
         String fileName = "src/main/resources/" + users.size() + "-" + user.getName().toUpperCase() + ".txt";
         String content = user.toString();
-        QuestionAnalyzer.writeFileTxt(fileName, content);
+        questionReader.writingFile(fileName, content);
     }
 
 
