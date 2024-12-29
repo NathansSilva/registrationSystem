@@ -101,7 +101,7 @@ public class QuestionService {
     }
 
     private void saveUserFile(User user) {
-        String fileName = users.size() + "-" + user.getName().toUpperCase() + ".txt";
+        String fileName = "src/main/resources/" + users.size() + "-" + user.getName().toUpperCase() + ".txt";
         String content = user.toString();
         QuestionAnalyzer.writeFileTxt(fileName, content);
     }
