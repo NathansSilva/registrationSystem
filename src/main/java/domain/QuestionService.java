@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Stream;
 
 public class QuestionService {
 
@@ -61,6 +62,13 @@ public class QuestionService {
                         return;
                     }
                 } else if(question.getQuestionNumber() == 3) {
+                    for (User user : users) {
+                        if (user.getEmail().contains(answer)) {
+                            System.out.println("E-mail already exists");
+                            return;
+                        }
+                    }
+
                     if (!emailValidation(answer)) {
                         System.out.println("Invalid e-mail.");
                         return;
