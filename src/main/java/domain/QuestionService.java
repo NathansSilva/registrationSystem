@@ -93,10 +93,7 @@ public class QuestionService {
     }
 
     public void listUsers() {
-        for (User user : users) {
-            System.out.println(user);
-        }
-
+        users.forEach(System.out::println);
     }
 
     private boolean emailValidation(String email) {

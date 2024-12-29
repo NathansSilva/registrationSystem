@@ -15,20 +15,11 @@ public class Question {
         return questionNumber + " - " + text;
     }
 
-
     public int getQuestionNumber() {
         return questionNumber;
     }
 
     public String getText() {
         return text;
-    }
-
-    public void setQuestionNumber(int questionNumber) {
-        this.questionNumber = questionNumber;
-    }
-
-    public void setText(String text) {
-        this.text = text;
     }
 }
