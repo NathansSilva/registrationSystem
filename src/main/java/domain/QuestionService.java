@@ -13,22 +13,18 @@ public class QuestionService {
 
     public QuestionService(String filename) {
         QuestionAnalyzer questionAnalyzer = new QuestionAnalyzer();
-
         try {
             this.questions = questionAnalyzer.analyze(filename, questionReader);
         } catch (IOException e) {
             System.out.println("Error loading file. " + e.getMessage());
             this.questions = new ArrayList<>();
         }
-
         this.users = new ArrayList<>();
     }
 
     public void listQuestions() {
         System.out.println();
-        for (Question question : questions) {
-            System.out.println(question);
-        }
+        questions.forEach(System.out::println);
         System.out.println();
     }
 
@@ -53,7 +49,6 @@ public class QuestionService {
             for (Question question : questions) {
                 System.out.print(question.getText() +" ");
                 String answer = sc.nextLine();
-
                 if (question.getQuestionNumber() == 2) {
                     int age = Integer.parseInt(answer);
                     if (age < 16) {
@@ -67,7 +62,6 @@ public class QuestionService {
                             return;
                         }
                     }
-
                     if (!emailValidation(answer)) {
                         System.out.println("Invalid e-mail.");
                         return;
@@ -87,6 +81,7 @@ public class QuestionService {
             users.add(user);
             System.out.println("User registered.");
             saveUserFile(user);
+
         } catch (Exception e) {
             System.out.println("Error registering user. " + e.getMessage());
         }

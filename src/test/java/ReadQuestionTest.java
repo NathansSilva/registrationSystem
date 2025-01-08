@@ -4,7 +4,7 @@ import domain.QuestionReaderText;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class ApplicationTest {
+public class ReadQuestionTest {
 
     private QuestionReader statementParser = new QuestionReaderText();
 
